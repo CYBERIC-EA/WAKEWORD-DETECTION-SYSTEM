@@ -2,7 +2,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 import librosa
 import numpy as np
-from tensorflow.python.keras.models import load_model
+from keras.models import load_model
 import time
 
 
@@ -13,9 +13,10 @@ filename = "prediction.wav"
 class_names = ["Wake Word NOT Detected", "Wake Word Detected"]
 
 ##### LOADING OUR SAVED MODEL and PREDICTING ###
-model = load_model("wakeword implementation\saved_model/WWD.h5")
+model = load_model("saved_model\WWD.h5")
 
-def og_predict(): 
+
+def og_predict():
     print("Prediction Started: ")
     i = 0
     while True:
@@ -39,9 +40,12 @@ def og_predict():
             print(f"Wake Word NOT Detected")
             print("Confidence:", prediction[:, 0])
 
-def predict(): 
+
+def predict():
+
+    # this prediction implementation returns true or false based on the result
     print("Prediction Started: ")
-    
+
     myrecording = sd.rec(int(seconds * fs), samplerate=fs, channels=2)
     sd.wait()
     write(filename, fs, myrecording)
@@ -55,9 +59,11 @@ def predict():
         print(f"Wake Word Detected")
         print("Confidence:", prediction[:, 1])
         return True
-        
 
     else:
         print(f"Wake Word NOT Detected")
         print("Confidence:", prediction[:, 0])
         return False
+
+
+predict()
