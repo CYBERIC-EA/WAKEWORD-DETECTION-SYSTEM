@@ -3,6 +3,8 @@
 Introduction:
 This repository contains a Wake Word Detection System developed using machine learning techniques. The system is designed to accurately identify a specific "hotword" from a continuous audio stream. The project utilizes a confusion matrix to differentiate between the hotword and any other spoken words.
 
+#THE HOTWORD I CHOSE IS ALPHA AND THE DATA WAS COLLECTED BY RECORDING MYSELF SAYING THE HOTWORD MULTIPLE TIMES
+
 Features:
 
 Wake Word Detection: The system employs machine learning algorithms to detect a specific wake word from an audio stream.
